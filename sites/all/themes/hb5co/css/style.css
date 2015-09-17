@@ -1,0 +1,92 @@
+/*
+ * Global Styles.
+ */
+#navbar.banner-below {
+  margin-bottom: 0;
+}
+
+/*
+ * Front page.
+ */
+body {
+  background-color: #F7EDE2;
+
+}
+.front header#page-header > .region > .block:first-child {
+  min-height: 300px;
+  background-color: #000;
+  color: #fff;
+}
+/* Apply only if banner exists */
+.banner-callout.container.has-banner {
+  margin-top: -50px;
+  position: relative;
+}
+
+/*
+ * Region Styles.
+ */
+.region.region-wide-content-bottom-1 {
+  background: #FDB948;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: #AD6A00;
+}
+.region.region-content {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* Pricing table */
+.db-pricing {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+  border: 1px solid #C5C2C2;
+  background-color: #EDEDED;
+
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+.db-pricing:hover {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.db-pricing ul {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+  padding-left: 0px;
+}
+.db-pricing ul li {
+  border-bottom: solid 1px #D8D8D8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.db-pricing ul li.price {
+  background-color: #fff;
+  padding: 40px 20px 20px 20px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #353c3e;
+  font-weight: 900;
+}
+.db-pricing ul li.price i {
+  padding: 30px 0;
+  margin: 0 auto;
+  font-size: 50px;
+  display: block;
+}
+.db-pricing .pricing-footer {
+  padding: 20px;
+}
+.db-pricing .pricing-footer a i {
+  margin: 5px;
+  top: 3px;
+}
+
