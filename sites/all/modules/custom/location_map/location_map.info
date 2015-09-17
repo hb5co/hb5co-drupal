@@ -1,0 +1,4 @@
+name = hb5 Location Map
+description = Provides a google map block of hb5 location(s).
+core = 7.x
+package = hb5

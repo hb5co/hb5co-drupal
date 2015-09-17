@@ -1,0 +1,18 @@
+#hb5-location-map {
+  min-height: 450px;
+  padding: 50px;
+}
+
+#hb5-location-map + #location-text {
+  position: absolute;
+  bottom: 0;
+}
+
+#hb5-location-map + #location-text .location-text-content {
+  background: #fff;
+  padding: 30px 60px;
+}
+
+.location-icon-large {
+  font-size: 60px;
+}
