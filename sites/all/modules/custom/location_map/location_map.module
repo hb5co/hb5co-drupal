@@ -15,7 +15,7 @@ function location_map_block_info() {
 /**
  * Implements hook_block_view().
  */
-function location_map_block_view($delta) {
+function location_map_block_view($delta = 0) {
   $block = array();
 
   switch ($delta) {
