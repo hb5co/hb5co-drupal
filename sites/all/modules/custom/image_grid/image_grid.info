@@ -1,0 +1,4 @@
+name = Image Grid from Instagram
+description = Dynamic image grid.
+core = 7.x
+package = hb5
