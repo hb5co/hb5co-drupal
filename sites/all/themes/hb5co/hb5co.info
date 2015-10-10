@@ -1,4 +1,4 @@
-name = hb5.co theme
+name = hb5co theme
 description = A Bootstrap Sub-theme.
 core = 7.x
 base theme = bootstrap
@@ -45,6 +45,7 @@ stylesheets[all][] = css/style.css
 ; ;; Scripts
 ; ;;;;;;;;;;;;;;;;;;;;;
 ;
+scripts[] = 'js/script.js'
 ; scripts[] = 'bootstrap/js/affix.js'
 ; scripts[] = 'bootstrap/js/alert.js'
 ; scripts[] = 'bootstrap/js/button.js'
