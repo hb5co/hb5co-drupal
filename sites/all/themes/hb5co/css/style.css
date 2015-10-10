@@ -1,40 +1,179 @@
 /*
- * Global Styles.
+ * Menu Styles.
  */
+#navbar {
+  background-color: #000;
+  background-color: rgba(0,0,0,.8);
+}
 #navbar.banner-below {
   margin-bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+#navbar .logo img{
+  width: 73px;
+  height: auto;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #32D1A8;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  color: #fff;
+  font-weight: bold;
+  background-color: #3DD0A9;
+}
+#page-header.has-callout {
+  margin-bottom: 60px;
+}
+
+/*
+ * Global Styles.
+ */
+img {
+  max-width: 100%;
+}
+body {
+  background-color: #ECF0F1;
+}
+.banner-header {
+  position: relative;
+}
+/* Apply when banner exists */
+.banner-callout.has-banner {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+.banner-callout.has-banner .region-header-callout {
+  background-color: #32D1A8;
+  padding: 40px;
+  border-radius: 5px 5px 0px 0px;
+  color: #ECF0F1;
+  font-size: 120%;
 }
 
 /*
  * Front page.
  */
-body {
-  background-color: #F7EDE2;
 
-}
-.front header#page-header > .region > .block:first-child {
-  min-height: 300px;
-  background-color: #000;
+.front .hero-block {
+  padding-top: 200px;
+  min-height: 500px;
+  background: url('/sites/default/files/hero.jpg') no-repeat center bottom #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #fff;
 }
-/* Apply only if banner exists */
-.banner-callout.container.has-banner {
-  margin-top: -50px;
+@media all and (max-width: 767px) {
+  .front .hero-block {
+    padding-top: 100px;
+  }
+}
+.front .main-container{
+  background-color: #ECF0F1;
+}
+.front h1.page-header {
+  display: none;
+}
+
+.cowork-features .cowork-feature {
+  padding: 60px;
+}
+@media all and (max-width: 767px) {
+  .cowork-features .cowork-feature {
+    padding: 15px 30px;
+  }
+}
+.cowork-feature.feature-1,
+.cowork-feature.feature-3 {
+  border-right: 1px solid #D4D5D6;
+}
+.cowork-feature.feature-1,
+.cowork-feature.feature-2 {
+  border-bottom: 1px solid #D4D5D6;
+}
+.cowork-feature .feature-image {
+  max-width: 150px;
+}
+
+@media all and (max-width: 767px) {
+  .cowork-feature {
+    border-bottom: 1px solid #D4D5D6;
+    border-right: none !important;
+  }
+}
+
+.slot-machine {
+  font-size: 0px;
+  text-shadow: 2px 2px 10px #000;
+  line-height: 50px;
+  height: 50px;
+}
+.slot-static {
+  font-size: 40px;
+  top: -10px;
   position: relative;
 }
+#hb5-slot-machine {
+  font-size: 40px;
+  display: inline-block;
+  height: 50px;
+  text-align: left;
+}
+
+#block-mailchimp-signup-stay-updated {
+  padding: 50px;
+  background: #fff;
+  border-radius: 5px;
+}
+#block-mailchimp-signup-stay-updated h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #aaa;
+}
+@media all and (max-width: 767px) {
+  #mailchimp-signup-subscribe-block-stay-updated-form {
+    padding: 40px 15px;
+  }
+  #block-mailchimp-signup-stay-updated h2.block-title {
+    text-align: center;
+  }
+}
+#mailchimp-signup-subscribe-block-stay-updated-form > div { overflow: hidden;}
+#mailchimp-signup-subscribe-block-stay-updated-form label {
+  display: none;
+}
+#mailchimp-signup-subscribe-block-stay-updated-form .mailchimp-signup-subscribe-form-description {
+  padding: 0px 15px 15px 15px;
+}
+
 
 /*
  * Region Styles.
  */
-.region.region-wide-content-bottom-1 {
+.region.region-wide-content-bottom-2 {
   background: #FDB948;
   padding-top: 40px;
   padding-bottom: 40px;
-  color: #AD6A00;
+  color: #754603;
+}
+.region.region-wide-content-bottom-2 hr {
+  border-color: #754603;
+  border-color: rgba(117,70,3,.5);
 }
 .region.region-content {
   padding-top: 40px;
   padding-bottom: 60px;
+}
+@media all and (max-width: 767px) {
+  .front .region.region-content {
+    padding-top: 10px;
+  }
 }
 
 /* Pricing table */
@@ -42,8 +181,8 @@ body {
   margin-bottom: 30px;
   margin-top: 30px;
   text-align: center;
-  border: 1px solid #C5C2C2;
   background-color: #EDEDED;
+  color: #7F8C8D;
 
   -webkit-transition: all .25s ease-in-out;
   -o-transition: all .25s ease-in-out;
@@ -58,19 +197,17 @@ body {
 .db-pricing ul {
   list-style: none;
   margin: 0;
-  text-align: center;
+  text-align: left;
   padding-left: 0px;
 }
 .db-pricing ul li {
   border-bottom: solid 1px #D8D8D8;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 15px 20px;
   cursor: pointer;
-  text-transform: uppercase;
 }
 .db-pricing ul li.price {
   background-color: #fff;
-  padding: 40px 20px 20px 20px;
+  padding: 25px 20px 20px 20px;
   font-size: 20px;
   font-weight: 900;
   color: #353c3e;
@@ -90,3 +227,63 @@ body {
   top: 3px;
 }
 
+/*
+ * Blog Styles.
+ */
+.view-blog .views-row {
+  background: #fff;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #aac8d0;
+}
+.view-blog .views-row .field {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.view-blog .views-row .field.field-name-field-image {
+  padding: 0;
+}
+.node.node-article .content{
+  background: #fff;
+  border-radius: 5px;
+  padding: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #aac8d0;
+}
+
+/*
+ * Projects Styles.
+ */
+.view-projects.view-display-id-page .masonry-item {
+  width: 25%;
+}
+.project-teaser {
+  padding: 15px;
+}
+.project-teaser > .node-teaser{
+  background: #fff;
+  border-radius: 5px;
+  border-bottom: 1px solid #aac8d0;
+  padding: 30px;
+}
+.project-teaser {
+  margin-bottom: 10px;
+}
+.project-teaser > .node-teaser h2 {
+  margin-top: 0;
+}
+
+/*
+ * Footer.
+ */
+.footer {
+  background: #555;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top: none;
+}
+.footer a {
+  color: #fff;
+}
