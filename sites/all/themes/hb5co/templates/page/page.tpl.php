@@ -114,11 +114,11 @@
 </header>
 
 <div class="banner-header">
-  <header role="banner" id="page-header">
+  <header role="banner" id="page-header" class="<?php if (!empty($page['header_callout'])) { print 'has-callout';} ?>">
     <?php print render($page['header']); ?>
     <?php if (!empty($page['header_callout'])): ?>
-      <div class="banner-callout container <?php if (!empty($page['header'])) { print 'has-banner';} ?>">
-        <div class="well well-reversed">
+      <div class="banner-callout <?php if (!empty($page['header'])) { print 'has-banner';} ?>">
+        <div class="container">
           <?php print render($page['header_callout']); ?>
         </div>
       </div>
@@ -126,45 +126,47 @@
   </header> <!-- /#page-header -->
 </div>
 
-<div class="main-container container">
-  <div class="row">
+<div class="main-container ">
+  <div class="container">
+    <div class="row">
 
-    <?php if (!empty($page['sidebar_first'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_first']); ?>
-      </aside>  <!-- /#sidebar-first -->
-    <?php endif; ?>
+      <?php if (!empty($page['sidebar_first'])): ?>
+        <aside class="col-sm-3" role="complementary">
+          <?php print render($page['sidebar_first']); ?>
+        </aside>  <!-- /#sidebar-first -->
+      <?php endif; ?>
 
-    <section<?php print $content_column_class; ?>>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-      <?php if (!empty($page['help'])): ?>
-        <?php print render($page['help']); ?>
-      <?php endif; ?>
-      <?php if (!empty($action_links)): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-    </section>
+      <section<?php print $content_column_class; ?>>
+        <?php if (!empty($page['highlighted'])): ?>
+          <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+        <?php endif; ?>
+        <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+        <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <?php if (!empty($title)): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+        <?php endif; ?>
+        <?php print render($title_suffix); ?>
+        <?php print $messages; ?>
+        <?php if (!empty($tabs)): ?>
+          <?php print render($tabs); ?>
+        <?php endif; ?>
+        <?php if (!empty($page['help'])): ?>
+          <?php print render($page['help']); ?>
+        <?php endif; ?>
+        <?php if (!empty($action_links)): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print render($page['content']); ?>
+      </section>
 
-    <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
-    <?php endif; ?>
+      <?php if (!empty($page['sidebar_second'])): ?>
+        <aside class="col-sm-3" role="complementary">
+          <?php print render($page['sidebar_second']); ?>
+        </aside>  <!-- /#sidebar-second -->
+      <?php endif; ?>
 
+    </div>
   </div>
 </div>
 
@@ -172,6 +174,11 @@
 <?php print render($page['wide_content_bottom_2']); ?>
 <?php print render($page['wide_content_bottom_3']); ?>
 
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
+<footer class="footer">
+  <div class="container">
+    <?php if (!empty($primary_nav)): ?>
+      <?php print render($primary_nav); ?>
+    <?php endif; ?>
+    <?php print render($page['footer']); ?>
+  </div>
 </footer>
