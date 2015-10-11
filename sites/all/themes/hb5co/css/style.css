@@ -33,9 +33,13 @@
  */
 img {
   max-width: 100%;
+  height: auto;
 }
 body {
   background-color: #ECF0F1;
+}
+.content {
+  font-size: 130%;
 }
 .banner-header {
   position: relative;
@@ -53,11 +57,31 @@ body {
   color: #ECF0F1;
   font-size: 120%;
 }
+.dont-break-out {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.bg-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 /*
  * Front page.
  */
-
 .front .hero-block {
   padding-top: 200px;
   min-height: 500px;
@@ -230,11 +254,24 @@ body {
 /*
  * Blog Styles.
  */
-.view-blog .views-row {
+body.page-blog .title-banner{
+  background: url(images/window_view.jpg) center center #999;
+  margin-top: -21px;
+}
+body.page-blog .title-banner .page-header {
+  margin: 80px 0;
+  color: #fff;
+}
+.view-blog .blog-teaser {
+  padding: 15px;
+  padding-bottom: 30px;
+}
+.view-blog .blog-teaser > div{
   background: #fff;
   padding-bottom: 40px;
-  margin-bottom: 40px;
+  /*margin-bottom: 40px;*/
   border-bottom: 1px solid #aac8d0;
+  /*width: 50%;*/
 }
 .view-blog .views-row .field {
   padding-left: 40px;
@@ -244,19 +281,12 @@ body {
   padding: 0;
 }
 .node.node-article .content{
-  background: #fff;
-  border-radius: 5px;
-  padding: 40px;
   margin-bottom: 40px;
-  border-bottom: 1px solid #aac8d0;
 }
 
 /*
  * Projects Styles.
  */
-.view-projects.view-display-id-page .masonry-item {
-  width: 25%;
-}
 .project-teaser {
   padding: 15px;
 }
@@ -271,6 +301,8 @@ body {
 }
 .project-teaser > .node-teaser h2 {
   margin-top: 0;
+  white-space: pre;
+  line-
 }
 
 /*
