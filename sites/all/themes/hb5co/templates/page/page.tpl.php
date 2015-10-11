@@ -126,6 +126,16 @@
   </header> <!-- /#page-header -->
 </div>
 
+<div class="title-banner bg-cover">
+  <div class="inner">
+    <div class="container">
+      <?php if (!empty($title)): ?>
+        <h1 class="page-header"><?php print $title; ?></h1>
+      <?php endif; ?>
+    </div>
+  </div>
+</div> <!-- /.title-banner -->
+
 <div class="main-container ">
   <div class="container">
     <div class="row">
@@ -143,9 +153,7 @@
         <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
-        <?php if (!empty($title)): ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
-        <?php endif; ?>
+
         <?php print render($title_suffix); ?>
         <?php print $messages; ?>
         <?php if (!empty($tabs)): ?>
