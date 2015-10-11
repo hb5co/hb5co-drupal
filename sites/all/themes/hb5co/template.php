@@ -7,21 +7,17 @@
 /**
  * Implements template_preprocess_html().
  */
-function hb5co_preprocess_html(&$vars) {
+function hb5co_preprocess_html(&$variables) {
   // Add Modernizr script earlier
   $modernizr = path_to_theme() . '/js/modernizr.js';
   drupal_add_js($modernizr, array('group'=> JS_LIBRARY, 'weight' => -1));
 
   // Add font-awesome icon font to theme.
   drupal_add_css("http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css", 'external');
-}
 
-/**
- * Implements template_preprocess_page() .
- */
-function hb5co_preprocess_page(&$variables) {
-  // Add slotmachine script to front page.
+  // Add slotmachine & matchHeight script to front page.
   if ($variables['is_front']) {
+    drupal_add_js(path_to_theme() . '/js/jquery.matchHeight-min.js');
     drupal_add_js(path_to_theme() . '/js/jquery.slotmachine.js');
   }
 }
