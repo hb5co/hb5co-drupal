@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Location map tpl file.
+ */
 
 $module_path = drupal_get_path('module', 'location_map');
 drupal_add_css($module_path . '/assets/css/location_map.css');

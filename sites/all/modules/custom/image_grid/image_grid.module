@@ -1,111 +1,125 @@
 <?php
-
 /**
- * Implementation of hook_block().
- * @param string $op one of "list", "view", "save" and "configure"
- * @param integer $delta code to identify the block
- * @param array $edit only for "save" operation
-*/
-function image_grid_block_info() {
-	$blocks = array();
-	$blocks['img_grid'] = array(
-		'info' => t('Image Grid'),
-		'cache' => 'BLOCK_CACHE_PER_PAGE',
-	);
-	$blocks['img_grid_static'] = array(
-		'info' => t('Image Grid: Static Image'),
-		'cache' => 'BLOCK_CACHE_PER_PAGE',
-	);
-	return $blocks;
-}
-
-function image_grid_block_view($delta = '0'){
-	$jsfile = drupal_get_path('module', 'image_grid') . "/assets/js/jquery.gridrotator.js";
-	$jsfile2 = drupal_get_path('module', 'image_grid') . "/assets/js/image_grid.js";
-	$cssfile = drupal_get_path('module', 'image_grid') . "/assets/css/image_grid_style.css";
-	switch($delta){
-		case 'img_grid':
-			$block['subject'] = t('Image Grid');
-			$block['content'] = array(
-				'#markup' => image_grid_block_content(),
-				'#attached' => array(
-					'js' => array(
-						array(
-							'data' => $jsfile,
-							'options' => array(
-									'group' => JS_LIBRARY,
-								),
-							),
-						$jsfile2),
-					'css' => array($cssfile),
-				),
-			);
-			break;
-	}
-	return $block;
-}
-
-/**
- * Return a set of images to be used in grid
+ * @file
+ * Image Grid module file.
  *
- * @return - images in an unordered list
+ * Provides a block that pulls recent instagram pics.
  */
-function image_grid_block_content(){
-	$gridlist = '<div id="ri-grid" class="ri-grid">';
-	$gridlist .= "<ul>";
 
-	$images = image_grid_get_images();
-
-	for($i=0;$i<(count($images)-1);$i++){
-		$gridlist .= "<li><a href='{$images[$i]['full']}'><img src='{$images[$i]['thumb']}'></a></li>";
-	}
-	$gridlist .= "</ul></div>";
-	return $gridlist;
+/**
+ * Implements hook_block_info().
+ */
+function image_grid_block_info() {
+  $blocks = array();
+  $blocks['img_grid'] = array(
+    'info' => t('Image Grid'),
+    'cache' => 'BLOCK_CACHE_PER_PAGE',
+  );
+  $blocks['img_grid_static'] = array(
+    'info' => t('Image Grid: Static Image'),
+    'cache' => 'BLOCK_CACHE_PER_PAGE',
+  );
+  return $blocks;
 }
 
-function image_grid_get_images(){
-	$access_token = "2166519591.1677ed0.024459fb3e9d41dca122963000414f12";
-	$client_id = "6cfcb8a3b0564941b7324d92eb8290ac";
+/**
+ * Implements hook_block_view().
+ */
+function image_grid_block_view($delta = '0') {
+  $jsfile = drupal_get_path('module', 'image_grid') . "/assets/js/jquery.gridrotator.js";
+  $jsfile2 = drupal_get_path('module', 'image_grid') . "/assets/js/image_grid.js";
+  $cssfile = drupal_get_path('module', 'image_grid') . "/assets/css/image_grid_style.css";
+
+  switch ($delta) {
+    case 'img_grid':
+      $block['subject'] = t('Image Grid');
+      $block['content'] = array(
+        '#markup' => image_grid_block_content(),
+        '#attached' => array(
+          'js' => array(
+            array(
+              'data' => $jsfile,
+              'options' => array(
+                'group' => JS_LIBRARY,
+              ),
+            ),
+            $jsfile2,
+          ),
+          'css' => array($cssfile),
+        ),
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Return a set of images to be used in grid.
+ *
+ * @return string
+ *   Images in an unordered list.
+ */
+function image_grid_block_content() {
+  $gridlist = '<div id="ri-grid" class="ri-grid">';
+  $gridlist .= "<ul>";
+
+  $images = image_grid_get_images();
+
+  for ($i = 0; $i < (count($images) - 1); $i++) {
+    $gridlist .= "<li><a href='{$images[$i]['full']}'><img src='{$images[$i]['thumb']}'></a></li>";
+  }
+  $gridlist .= "</ul></div>";
+  return $gridlist;
+}
+
+/**
+ * Get images from instagram.
+ *
+ * @return string
+ *   Images in an unordered list.
+ */
+function image_grid_get_images() {
+  $access_token = "2166519591.1677ed0.024459fb3e9d41dca122963000414f12";
+  $client_id = "6cfcb8a3b0564941b7324d92eb8290ac";
   $user_id = "2166519591";
   $url = "https://api.instagram.com/v1/users/" . $user_id . "/media/recent/?client_id=" . $client_id;
 
-	$images = array();
-	$images = image_grid_get_media($images, $url);
+  $images = array();
+  $images = image_grid_get_media($images, $url);
 
-	if($images['next'] != NULL){
-		$images = image_grid_get_media($images, $images['next']);
-	}
-	if($images['next'] != NULL){
-		$images = image_grid_get_media($images, $images['next']);
-	}
+  if ($images['next'] != NULL) {
+    $images = image_grid_get_media($images, $images['next']);
+  }
+  if ($images['next'] != NULL) {
+    $images = image_grid_get_media($images, $images['next']);
+  }
 
-	return $images;
+  return $images;
 }
 
 /**
  * Get data from instagram.
  *
  * @param array $imgs
- *   array containing list of images (for pagination), or empty array.
+ *   Array containing list of images (for pagination), or empty array.
  * @param string $url
- *   url to retrieve image data from.
+ *   Url to retrieve image data from.
  */
-function image_grid_get_media($imgs, $url){
-	$images = drupal_http_request($url);
-	$jsn = json_decode($images->data);
+function image_grid_get_media(array $imgs, $url) {
+  $images = drupal_http_request($url);
+  $jsn = json_decode($images->data);
 
-	foreach($jsn->data as $img){
-		$imgs[] = array(
+  foreach ($jsn->data as $img) {
+    $imgs[] = array(
       'thumb' => $img->images->low_resolution->url,
       'full' => $img->images->standard_resolution->url,
     );
-	}
+  }
 
   // Get more images.
   if (isset($jsn->pagination->next_url)) {
-	 $imgs['next'] = $jsn->pagination->next_url;
+    $imgs['next'] = $jsn->pagination->next_url;
   }
 
-	return $imgs;
+  return $imgs;
 }
-
