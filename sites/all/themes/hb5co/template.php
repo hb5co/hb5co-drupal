@@ -8,9 +8,9 @@
  * Implements template_preprocess_html().
  */
 function hb5co_preprocess_html(&$variables) {
-  // Add Modernizr script earlier
+  // Add Modernizr script earlier.
   $modernizr = path_to_theme() . '/js/modernizr.js';
-  drupal_add_js($modernizr, array('group'=> JS_LIBRARY, 'weight' => -1));
+  drupal_add_js($modernizr, array('group' => JS_LIBRARY, 'weight' => -1));
 
   // Add font-awesome icon font to theme.
   drupal_add_css("http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css", 'external');
