@@ -1,0 +1,30 @@
+#block-location-map-location-map {
+  position: relative;
+}
+#hb5-location-map {
+  min-height: 450px;
+  padding: 50px;
+}
+
+#hb5-location-map + #location-text-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+#hb5-location-map + #location-text-wrapper .location-text-content {
+  background: #4884D1;
+  padding: 30px 60px;
+  color: #fff;
+}
+
+ul.social-links li a {
+  font-size: 30px;
+  color: #fff;
+}
+ul.social-links li a:hover {
+  color: #32D1A8;
+}
+
+ul.social-links .social-text { display: none; }
+

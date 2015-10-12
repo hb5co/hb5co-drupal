@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * Location map module.
+ *
+ * This module provides a google map block.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function location_map_block_info() {
+  $blocks = array();
+  $blocks['location_map'] = array(
+    'info' => t('hb5 Location Map'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function location_map_block_view($delta = 0) {
+  $block = array();
+
+  switch ($delta) {
+    case 'location_map':
+      $block['subject'] = t('hb5 Location Map');
+      $block['content'] = theme('hb5_location_map', array());
+
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function location_map_theme($existing, $type, $theme, $path) {
+  return array(
+    'hb5_location_map' => array(
+      'template' => 'hb5-location-map',
+      'variables' => array(),
+    ),
+  );
+}
