@@ -1,0 +1,7 @@
+AuthName "staging.hb5.co statistics"
+AuthType Basic
+AuthUserFile /home/staging.hb5.co/.stats-htpasswd
+require valid-user
+<Files .stats-htpasswd>
+deny from all
+</Files>
