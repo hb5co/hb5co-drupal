@@ -21,8 +21,8 @@ drupal_add_js(array('location_map' => array('module_path' => $module_path)), arr
     <div class="location-text-content col-md-5 col-md-offset-7">
       <h2>Stop by and see us!</h2>
       <address>
-        <strong>hb5 cowork</strong><br>
-        42 Union Street S.<br>
+        <strong>hb5 co/work</strong><br>
+        42 Union Street South<br>
         Concord, NC 28025<br>
 
         <p>Shoot us an <a href="mailto:cowork@hb5.co">email</a></p>
