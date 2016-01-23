@@ -8,11 +8,11 @@ $module_path = drupal_get_path('module', 'location_map');
 drupal_add_css($module_path . '/assets/css/location_map.css');
 
 // Add required js files for gmap.
-drupal_add_js('https://maps.googleapis.com/maps/api/js?sensor=true', 'external');
-drupal_add_js($module_path . '/assets/js/location_map.js');
+// drupal_add_js('https://maps.googleapis.com/maps/api/js?sensor=true', 'external');
+// drupal_add_js($module_path . '/assets/js/location_map.js');
 
 // Pass vars to js.
-drupal_add_js(array('location_map' => array('module_path' => $module_path)), array('type' => 'setting'));
+// drupal_add_js(array('location_map' => array('module_path' => $module_path)), array('type' => 'setting'));
 ?>
 
 <div id="hb5-location-map"></div>
