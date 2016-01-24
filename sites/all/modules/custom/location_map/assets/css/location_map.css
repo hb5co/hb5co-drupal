@@ -4,6 +4,13 @@
 #hb5-location-map {
   min-height: 450px;
   padding: 50px;
+  background-image: url(../images/location_map.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 #hb5-location-map + #location-text-wrapper {

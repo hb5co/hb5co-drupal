@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * hb5_metatag_feature.features.metatag.inc
+ * hb5_metatag.features.metatag.inc
  */
 
 /**
  * Implements hook_metatag_export_default().
  */
-function hb5_metatag_feature_metatag_export_default() {
+function hb5_metatag_metatag_export_default() {
   $config = array();
 
   // Exported Metatag config instance: global.
@@ -111,7 +111,7 @@ function hb5_metatag_feature_metatag_export_default() {
         'value' => '',
       ),
       'shortcut icon' => array(
-        'value' => '/sites/all/themes/hb5co/favicon.ico',
+        'value' => '/sites/all/themes/hb5co/favicon.png',
       ),
       'icon_any' => array(
         'value' => '',
@@ -231,7 +231,7 @@ function hb5_metatag_feature_metatag_export_default() {
         'value' => '',
       ),
       'og:image:url' => array(
-        'value' => '/sites/default/files/cover.jpg',
+        'value' => '/sites/all/themes/hb5co/css/images/cover.jpg',
       ),
       'og:image:secure_url' => array(
         'value' => '',
@@ -252,7 +252,7 @@ function hb5_metatag_feature_metatag_export_default() {
         'value' => '',
       ),
       'og:street_address' => array(
-        'value' => '42 Union Street South',
+        'value' => '42 Union Street South. Suite A',
       ),
       'og:locality' => array(
         'value' => 'Concord',
