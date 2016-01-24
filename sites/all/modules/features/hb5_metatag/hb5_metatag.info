@@ -5,3 +5,4 @@ package = Features
 dependencies[] = metatag
 features[features_api][] = api:2
 features[metatag][] = global
+project status url = hb5_metatag
